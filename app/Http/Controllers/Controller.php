@@ -21,9 +21,9 @@ class UserController extends Controller{
  
   }
  
-  public function updateUser(Request $request, $emailAdd){
-      $user  = User::find($emailAdd);
-      $user->username = $request->input('username');
+  public function updateUser(Request $request, $emailAddress){
+      $user  = User::find($emailAddress);
+      $user->userName = $request->input('userName');
       $user->password = $request->input('password');
       $user->createdDate = $request->input('createdDate');
       $user->updatedDate = $request->input('updatedDate');
@@ -31,8 +31,8 @@ class UserController extends Controller{
  
       return response()->json($user);
   }  
-  public function deleteUser($emailAdd){
-      $user  = User::find($emailAdd);
+  public function deleteUser($emailAddress){
+      $user  = User::find($emailAddress);
       $user->delete();
  
       return response()->json('Removed successfully.');
