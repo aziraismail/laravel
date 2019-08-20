@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('App.User.{emailAddress}', function ($user, $emailAddress) {
+    return (varchar) $user->emailAddress === (varchar) $emailAddress;
 });
