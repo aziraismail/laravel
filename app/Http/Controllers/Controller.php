@@ -15,25 +15,25 @@ class Controller extends BaseController
 class UserController extends Controller{
   public function createUser(Request $request){
  
-      $user = User::create($request->all());
+      $users = User::create($request->all());
  
-      return response()->json($user);
+      return response()->json($users);
  
   }
  
   public function updateUser(Request $request, $emailAddress){
-      $user  = User::find($emailAddress);
-      $user->userName = $request->input('userName');
-      $user->password = $request->input('password');
-      $user->createdDate = $request->input('createdDate');
-      $user->updatedDate = $request->input('updatedDate');
-      $user->save()
+      $users  = User::find($email_add);
+      $users->username = $request->input('username');
+      $users->password = $request->input('password');
+      $users->createdDate = $request->input('createdDate');
+      $users->updatedDate = $request->input('updatedDate');
+      $users->save()
  
-      return response()->json($user);
+      return response()->json($users);
   }  
   public function deleteUser($emailAddress){
-      $user  = User::find($emailAddress);
-      $user->delete();
+      $users  = User::find($emailAddress);
+      $users->delete();
  
       return response()->json('Removed successfully.');
   }
